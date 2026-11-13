@@ -244,7 +244,7 @@ StructureGuard/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/StructureGuard.git
+git clone https://github.com/akashnarayanan007/StructureGuard.git
 cd StructureGuard
 ```
 
