@@ -1,0 +1,68 @@
+# ═══════════════════════════════════════════════════════════
+# StructureGuard — Master Configuration
+# All tunable parameters live here. No hardcoded values.
+# ═══════════════════════════════════════════════════════════
+
+model:
+  weights: "yolov8n.pt"           # Auto-downloads if not found
+  confidence_threshold: 0.40
+  iou_threshold: 0.45
+  device: "cpu"                   # "cpu" or "cuda" (auto-detect override)
+
+classes:
+  - person
+  - helmet
+  - no_helmet
+  - safety_vest
+  - no_vest
+  - harness
+  - no_harness
+  - gloves
+  - machinery
+  - scaffold
+
+tracking:
+  max_age: 30
+  n_init: 3
+  max_iou_distance: 0.7
+  debounce_frames: 15             # Frames before alert fires
+
+preprocessing:
+  clahe_clip_limit: 2.0
+  clahe_tile_grid: [8, 8]
+  target_size: [640, 640]
+
+zones:
+  danger_polygons:
+    - name: "Machinery Zone"
+      points: [[100,100],[500,100],[500,400],[100,400]]
+      color: [0, 0, 255]
+    - name: "Scaffold Zone"
+      points: [[550,50],[780,50],[780,480],[550,480]]
+      color: [0, 165, 255]
+
+severity:
+  no_helmet_base: 80
+  no_vest_base: 50
+  no_harness_base: 90
+  no_gloves_base: 30
+  zone_multiplier: 1.5
+  confidence_weight: true
+
+  thresholds:
+    critical: 80
+    high: 55
+    medium: 35
+    low: 0
+
+reporting:
+  report_interval_seconds: 300    # Generate report every 5 minutes
+  snapshot_on_violation: true
+  output_dir: "output"
+  annotated_video: true
+
+dashboard:
+  show_fps: true
+  show_violation_count: true
+  show_track_ids: true
+  panel_width: 300                # Right-side stats panel width

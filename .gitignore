@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output generated files (preserve directory structure)
+output/annotated_videos/*
+!output/annotated_videos/.gitkeep
+output/reports/*
+!output/reports/.gitkeep
+output/snapshots/*
+!output/snapshots/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
